@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+*,div,body,html,input {
+    margin:0px;
+    padding:0px;
+    outline:none;
+    position: relative;
+}
+body{
+    background-color: #d93034;
+    color:black;
+}
+@font-face {
+    font-family: 'norwester';
+    src:url('norwester.otf');
+}
+.row-xs-12 { height: 100%; }
+.row-xs-11 { height: 91.66666666666666%; }
+.row-xs-10 { height: 83.33333333333334%; }
+.row-xs-9 { height: 75%; }
+.row-xs-8 { height: 66.66666666666666%; }
+.row-xs-7 { height: 58.333333333333336%; }
+.row-xs-6 { height: 50%; }
+.row-xs-5 { height: 41.66666666666667%;}
+.row-xs-4 { height: 33.33333333333333%;}
+.row-xs-3 { height: 25%; }
+.row-xs-2 { height: 16.666666666666664%; }
+.row-xs-1 { height: 8.333333333333332%; }
+
+.no-padding{
+    padding-left:0px;
+    padding-right:0px;
+}
+/* top navigation */
+.topnav{
+    position: relative; 
+    width:100%;
+    background: white;
+}
+.company-logo{
+    font-family:norwester; 
+    color: #d93034;
+    padding:12px 40px;
+    font-size: 1.5em;
+}
+.company-logo,#stack{
+    display: inline-block;
+}
+#stack{
+    width:70%;
+}
+.search-bar{
+    position: absolute;
+    top:40vh;
+    left:15vw;
+    border:10px solid white;
+}
+.searching{
+    position: relative;
+    animation-name: slidetop;
+    animation-duration: 1s;
+    top:0vh;
+    border:5px solid #d93034;
+}
+.searching #query{
+    color:black;
+}
+.searching #search_button{
+    color:#d93034;
+}
+#query {
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    width:92%;
+    background-color: transparent;
+    padding: 12px 20px 12px 20px;
+    color:white;
+    border:none;
+}
+#search_button{
+    position: absolute;
+    display: inline-block;
+    top:0px;
+    margin-top:2px;
+    right:10px;
+    color:white;
+}
+.search-bar .fa-play{
+    margin-top:0px;
+    margin-left:5%;
+}
+/* end of top navigation */
+.card {
+  position: relative;
+  display: block;
+  padding: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: arial;
+  text-transform: lowercase;
+  display: table;
+  flex-wrap: wrap;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+/* Footer section */
+.footer{
+    font-family:norwester;
+    position: fixed;
+    display: block;
+    width:100%;
+    background-color: white;
+    height:30px;
+    bottom:0px;
+}
+.copyright{
+    position: absolute;
+    color:#d93034;
+    right:5%;
+}
+@-webkit-keyframes slidetop {
+    0%   {top:40vh;}
+    100% {top:0vh;}
+}
+
+/* Standard syntax */
+@keyframes slidetop {
+    0%   {top:40vh;}
+    100% {top:0vh;}
+}

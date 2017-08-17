@@ -31,6 +31,7 @@ class SearchController < ApplicationController
       render :json => {:status => 'success', :data => search_response.body}
     rescue Google::APIClient::TransmissionError => e
       puts e.result.body
+      render :json => {:status => 'failure', :data => 'Please Try again.'}
     end
   end
 

@@ -11,6 +11,10 @@ gem 'google-api-client', '0.8'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#bootstrap version 4
+gem 'bootstrap', '~> 4.0.0.alpha6'
+#font awesome icons
+gem 'font-awesome-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

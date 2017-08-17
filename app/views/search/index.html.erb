@@ -1,68 +1,40 @@
-<style> 
-body{
-    background:rgb(7, 8, 23);
-    color:white;
-}
-input[type=text] {
-    display:block;
-    width: 400px;
-    box-sizing: border-box;
-    border: 2px solid green;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-    margin:0 auto;
-}
-#search_button{
-    display:block;
-    width:100px;
-    box-sizing: border-box;
-    background-color: white;
-    border: 2px solid fluroscent;
-    font-size: 16px;
-    background-color: white;
-    padding: 12px;
-    margin:0 auto;
-}
+<div id="result">
 
-input[type=text]:focus {
-    width: 100%;
-}
-</style>
-<div>
-    <input type="text" placeholder="Search.." name="query" id="query">
-    <button id="search_button">Search</button>
 </div>
 
-<div>
-    <p id="result">
-    </p>
-</div>
 <script>
-$(document).ready(
-  function(){
-    $("#search_button").on("click",function(){
-        var datas=$("#query").val();
-        $.ajax({
-            type:"GET",
-            url:"videos_Search",
-            dataType:"json",
-            data: {query: datas},
-            success:function(result){
-                if(result.status == "success"){
-                    search_data=JSON.parse(result.data);
-                    result=search_data['items'];
-                    result.forEach(function(each){
-                        console.log(each.id.videoId);
-                    });
-                }
-            }
+    $(document).ready(
+        function () {
+            $("#search_button").on("click", function () {
+                var datas = $("#query").val();
+                $(".search-bar").addClass("searching");
+                $.ajax({
+                    type: "GET",
+                    url: "videos_Search",
+                    dataType: "json",
+                    data: {
+                        query: datas
+                    },
+                    success: function (result) {
+                        if (result.status == "success") {
+                            search_data = JSON.parse(result.data);
+                            console.log(search_data);
+                            result = search_data['items'];
+                            console.log(result);
+                            $("#result").text("");
+                            result.forEach(function (each) {
+                                $("#result").append('<div class="row"><div class="col-sm-4"><a href="http://www.youtube.com/watch?v='+ 
+                                each.id.videoId+'"><img src="' + each.snippet.thumbnails.high.url + 
+                                '" alt="image" width="100%"><div class="container"></a><h5>' 
+                                + each.snippet.title +'</h5></div></div></div>');
+                            });
+                        }
+                        else if (result.status == "failure") {
+                        $("#result").text("Please try again");
+                        }
+
+                    }
+                });
+            });
         });
-    });
-});
-
-
 </script>
